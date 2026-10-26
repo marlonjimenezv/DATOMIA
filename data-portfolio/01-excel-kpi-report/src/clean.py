@@ -18,7 +18,7 @@ import pandas as pd
 
 PROJECT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT.parent / "common"))
-from download import fetch  # noqa: E402
+from fetch_utils import fetch  # noqa: E402
 
 RAW = PROJECT / "data" / "raw"
 CLEAN = PROJECT / "data" / "clean"
