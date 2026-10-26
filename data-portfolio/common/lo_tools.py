@@ -3,6 +3,7 @@
 Usage:
   /usr/bin/python3 common/lo_tools.py recalc  <in.xlsx> <out_values.xlsx> [--pdf out.pdf --sheets KPIs,Notes]
                                                [--one-page KPIs]   (A3 landscape, 1 page, PDF only)
+                                               [--areas "Sheet=A1:M30;Other=A1:F20"]  (print areas, PDF only)
 
 `recalc` opens the workbook in headless LibreOffice, recalculates every formula,
 fails if any formula returns an error (#REF!, #DIV/0!, #NAME?, #VALUE!, ...),
@@ -42,7 +43,7 @@ def _connect(pipe: str):
 
 
 def recalc(src: str, out_values: str, pdf: str | None = None, sheets: list[str] | None = None,
-           max_rows: int = 45, one_page: list[str] | None = None) -> int:
+           max_rows: int = 45, one_page: list[str] | None = None, areas: dict | None = None) -> int:
     pipe = f"lo_{os.getpid()}"
     profile = tempfile.mkdtemp(prefix="lo_profile_")
     proc = subprocess.Popen([
@@ -86,7 +87,9 @@ def recalc(src: str, out_values: str, pdf: str | None = None, sheets: list[str] 
                     cur = sh.createCursor()
                     cur.gotoEndOfUsedArea(False)
                     last_row, last_col = cur.RangeAddress.EndRow, cur.RangeAddress.EndColumn
-                    if last_row > max_rows and not sh.getPrintAreas():
+                    if areas and sh.Name in areas:
+                        sh.setPrintAreas((sh.getCellRangeByName(areas[sh.Name]).getRangeAddress(),))
+                    elif last_row > max_rows and not sh.getPrintAreas():
                         area = CellRangeAddress()
                         area.Sheet, area.StartColumn, area.StartRow = i, 0, 0
                         area.EndColumn, area.EndRow = last_col, max_rows - 1
@@ -116,5 +119,7 @@ if __name__ == "__main__":
     pdf = args[args.index("--pdf") + 1] if "--pdf" in args else None
     sheets = args[args.index("--sheets") + 1].split(",") if "--sheets" in args else None
     one = args[args.index("--one-page") + 1].split(",") if "--one-page" in args else None
-    n_err = recalc(src, out, pdf, sheets, one_page=one)
+    areas = (dict(x.split("=") for x in args[args.index("--areas") + 1].split(";"))
+             if "--areas" in args else None)
+    n_err = recalc(src, out, pdf, sheets, one_page=one, areas=areas)
     sys.exit(1 if n_err else 0)

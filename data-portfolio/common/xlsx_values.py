@@ -14,7 +14,7 @@ EXCEL_EPOCH = dt.datetime(1899, 12, 30)
 
 
 def lo_recalc(src: Path, out_values: Path, pdf: Path | None = None, sheets: list[str] | None = None,
-              one_page: list[str] | None = None) -> None:
+              one_page: list[str] | None = None, areas: dict | None = None) -> None:
     """Run common/lo_tools.py with the system python. Raises if any formula returns an error."""
     cmd = ["/usr/bin/python3", str(COMMON / "lo_tools.py"), "recalc", str(src), str(out_values)]
     if pdf:
@@ -23,6 +23,8 @@ def lo_recalc(src: Path, out_values: Path, pdf: Path | None = None, sheets: list
         cmd += ["--sheets", ",".join(sheets)]
     if one_page:
         cmd += ["--one-page", ",".join(one_page)]
+    if areas:
+        cmd += ["--areas", ";".join(f"{k}={v}" for k, v in areas.items())]
     res = subprocess.run(cmd, capture_output=True, text=True)
     print(res.stdout.rstrip())
     if res.returncode != 0:
