@@ -36,7 +36,7 @@ the routine work; an optional AI step (Claude) reads what the rules cannot, such
 4. **Validate.** Required fields; quantity × price on every line; lines vs subtotal; subtotal + tax vs total; tax vs
    rate; due date after issue date; no future dates; no duplicate supplier + invoice number in the batch.
 5. **AI step (optional).** Runs only if the `ANTHROPIC_API_KEY` environment variable is set. Invoices the rules could
-   not read (scanned images, missing fields) are sent to Claude (`claude-opus-5-5`, structured JSON output); scanned
+   not read (scanned images, missing fields) are sent to Claude (structured JSON output); scanned
    PDFs are sent as documents so Claude reads the image. Claude's answer goes through the same checks and is marked
    "AI (Claude)". It is never used to "fix" an invoice that was read correctly but is wrong on paper.
 6. **Output.** Excel workbook and CSV files.
