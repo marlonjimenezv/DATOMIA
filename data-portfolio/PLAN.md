@@ -38,6 +38,22 @@ Orden de trabajo: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8. Cada proyecto se 
 
 Esta sesión solo puede escribir en el repo `marlonjimenezv/DATOMIA`, que hoy es el sitio web de Datomia. Por eso el portafolio vive en la carpeta `data-portfolio/` de la rama de trabajo. Para publicarlo como repo independiente `data-portfolio` con GitHub Pages hay que seguir `PUBLICAR.md` (lo haces tú, son 5 comandos).
 
-## Bloqueos
+## Archivos de la raíz
 
-Ninguno por ahora.
+| Archivo | Para qué |
+|---|---|
+| `README.md` | Índice del portafolio en inglés (para clientes), con fuentes y licencias. |
+| `GUIA_MARLON.md` | Guía en español: cada proyecto explicado, resultados y 5 preguntas de entrevista con respuesta. |
+| `PORTAFOLIO_UPWORK.md` | Todos los textos de Upwork listos para copiar y el orden de las imágenes (se genera con `build_site.py`). |
+| `PUBLICAR.md` | Pasos para publicar el repositorio y activar GitHub Pages. |
+| `run_all.py` / `build_site.py` | Reconstruir los 8 proyectos / la página web (`docs/`) y `PORTAFOLIO_UPWORK.md`. |
+
+## Bloqueos y pendientes (solo los puedes hacer tú)
+
+- **Publicar** el repositorio `data-portfolio` y activar Pages: ver `PUBLICAR.md`.
+- **Power BI** (proyecto 2): armar el `.pbix` en Power BI Desktop con `POWERBI_PASO_A_PASO.md`.
+- **Upwork**: subir los proyectos con `PORTAFOLIO_UPWORK.md`.
+- **Proyecto 4**: 61 sitios no se pudieron verificar desde el servidor de esta sesión (fuera de Colombia). Opcional:
+  `python 04-b2b-lead-list/run.py --refresh` desde Colombia.
+- **Proyecto 8**: el paso de IA está construido y probado contra una API falsa, pero no se corrió con la API real
+  porque no hay API key. Opcional: activarlo con tu key (ver la guía).

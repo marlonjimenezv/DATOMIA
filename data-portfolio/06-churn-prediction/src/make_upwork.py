@@ -115,7 +115,8 @@ def main(r: dict) -> None:
         f"Leakage control: {r['duplicates']} duplicate rows removed before the train/test split, scaling inside the "
         "pipeline, threshold chosen on out-of-fold training predictions.",
     ]
-    links = [f"Notebook (HTML): {config.file_url(FOLDER + '/output/churn_model.html')}",
+    links = [f"Report (web page): {config.PAGES_URL}/churn-report/",
+             f"Notebook with code: {config.file_url(FOLDER + '/analysis/churn_model.ipynb')}",
              f"One-pager (PDF): {config.file_url(FOLDER + '/output/churn_one_pager.pdf')}",
              f"GitHub project folder: {config.folder_url(FOLDER)}"]
     write_texts(UP, title, desc, skills, captions, links)

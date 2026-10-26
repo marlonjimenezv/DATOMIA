@@ -111,7 +111,7 @@ def main(r: dict) -> None:
         "Assumptions checked and reported: events per predictor, multicollinearity (VIF), influential cases, "
         "calibration and goodness of fit, followed by the results in plain language and the limitations.",
     ]
-    links = [f"Report (HTML): {config.file_url(FOLDER + '/output/report.html')}",
+    links = [f"Report (web page): {config.PAGES_URL}/survey-report/",
              f"Report (PDF): {config.file_url(FOLDER + '/output/report.pdf')}",
              f"Notebook with code: {config.file_url(FOLDER + '/analysis/analysis.ipynb')}",
              f"GitHub project folder: {config.folder_url(FOLDER)}"]
