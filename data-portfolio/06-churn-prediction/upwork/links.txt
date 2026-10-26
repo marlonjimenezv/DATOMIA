@@ -1,0 +1,3 @@
+Notebook (HTML): https://github.com/marlonjimenezv/data-portfolio/blob/main/06-churn-prediction/output/churn_model.html
+One-pager (PDF): https://github.com/marlonjimenezv/data-portfolio/blob/main/06-churn-prediction/output/churn_one_pager.pdf
+GitHub project folder: https://github.com/marlonjimenezv/data-portfolio/tree/main/06-churn-prediction
