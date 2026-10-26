@@ -24,7 +24,7 @@ Todos los datos son reales y públicos (salvo las facturas del proyecto 8, que s
 | 5 | Survey analysis | Statistical analysis / thesis help | General Social Survey (GSS) 2024, microdatos + codebook oficial. | NORC at the University of Chicago, [gss.norc.org](https://gss.norc.org/us/en/gss/get-the-data.html). Uso libre con cita obligatoria (términos de NORC). Los microdatos **no** se suben al repo: se descargan con script. | Listo |
 | 6 | Churn prediction | Predictive analytics / ML | Iranian Churn Dataset (3.150 clientes de una telco). | UCI Machine Learning Repository, DOI [10.24432/C5JW3Z](https://doi.org/10.24432/C5JW3Z). **CC BY 4.0**. | Listo |
 | 7 | Economic brief | Economic research / policy analysis | Salario mínimo de Colombia 2004–2025 frente a inflación, productividad y otros países. | OIT – ILOSTAT (salario mínimo, **CC BY 4.0**); DANE – IPC (uso libre citando "Fuente: DANE"); Banco Mundial – WDI (**CC BY 4.0**); OCDE (**CC BY 4.0**); valor 2025 del Decreto 1572 de 2024. | Listo |
-| 8 | AI PDF-to-Excel automation | AI automation / data extraction | Facturas PDF de ejemplo generadas por script, marcadas **SAMPLE / SYNTHETIC**. | Generadas por el propio proyecto (única excepción permitida). | Pendiente |
+| 8 | AI PDF-to-Excel automation | AI automation / data extraction | Facturas PDF de ejemplo generadas por script, marcadas **SAMPLE / SYNTHETIC**. | Generadas por el propio proyecto (única excepción permitida). | Listo (el paso con IA se activa con tu API key) |
 
 Orden de trabajo: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8. Cada proyecto se construye, se verifica (sección 7 del prompt) y se hace commit antes de pasar al siguiente.
 
